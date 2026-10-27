@@ -9,9 +9,14 @@ dns.setServers([
     '1.1.1.1',
     '8.8.8.8'
 ])
+
 app.use(cors({
-    origin:'http://localhost:5173'
+    origin: [
+        'http://localhost:5173',
+        'https://skillswap-nine-tau.vercel.app'
+    ]
 }));
+
 // Middleware
 app.use(express.json());
 
