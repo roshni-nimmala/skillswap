@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors=require('cors');
 const app = express();
 require('dotenv').config();
-const port = 3000;
+//const port = 3000;
 const dns=require('dns');
 dns.setServers([
     '1.1.1.1',
@@ -45,6 +45,8 @@ app.get("/api/auth/test-protected", authMiddleware, (req, res) => {
   });
 });
 // Start server
-app.listen(port, () => {
-    console.log(`server is listening at port: ${port}`);
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
